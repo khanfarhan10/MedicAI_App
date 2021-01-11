@@ -14,6 +14,8 @@ Deployment Files for MedicAI Application Server Deployed on Flask using Heroku.
 - Readme Instructions for VENV and local deployment
 - See TextSentimentAnalysis for More
 - Filmora Intro Video
+- Custom 404 and Linking
+- Automail Python
 
 ### Website Pages
 

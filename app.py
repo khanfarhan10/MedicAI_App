@@ -63,5 +63,21 @@ def homepage1():
     return render_template('homepage.html')
 
 
+@app.route('/homepage.html')
+def homepage2():
+    return render_template('homepage.html')
+
+
+# This is for submitting a form from /fillaform
+@app.route('/login', methods=['POST'])
+def submitsuccess():
+    LoginUserEmail = request.form['LoginUserEmail']
+    LoginUserPassword = request.form['LoginUserPassword']
+    LoginUserRememberMe = request.form['LoginUserRememberMe']
+    print(LoginUserEmail)
+    return 'Hi!'
+    # return render_template('sucess.html')
+
+
 if __name__ == "__main__":
     app.run(debug=True)
