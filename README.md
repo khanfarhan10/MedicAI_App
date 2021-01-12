@@ -6,6 +6,7 @@ Deployment Files for MedicAI Application Server Deployed on Flask using Heroku.
 
 ### General
 
+- HomePage : Complete
 - CertGen
 - QRCodeGen
 - SQL
@@ -20,6 +21,7 @@ Deployment Files for MedicAI Application Server Deployed on Flask using Heroku.
 ### Website Pages
 
 - Favicon
+- HomePage : Warn user when CapsLock is On
 - Other Static Pages
   - About Pages
   - Currently Supported Models Pages

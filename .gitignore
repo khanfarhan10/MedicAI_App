@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Log Folder
+# Logs
+
+# Environment Folder
+MedicAI_AppEnv
+
 # C extensions
 *.so
 

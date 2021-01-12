@@ -1,0 +1,6 @@
+2021-01-12 16:15:28.853545
+User Registered : 127.0.0.1
+RegisterUserName : sdcmsdf
+RegisterUserEmail : nsdfsdb@gasj.com
+RegisterUserPassword : sdfsdfsdf
+RegisterPolicy : on
