@@ -84,6 +84,17 @@ def homepage2():
     return render_template('homepage.html')
 
 
+@app.route('/logs')
+def logs():
+    with open(os.path.join(os.getcwd(), "Logs", "log1.txt"), "r") as f:
+        content = f.readlines()
+
+    # using list comprehension
+    listToStr = '<br>'.join([str(elem) for elem in content])
+    # print(listToStr)
+    return listToStr
+
+
 def write_line(LineText, Filename):
     with open(Filename, "a+") as f:
         f.write(LineText+str("\n"))
@@ -99,8 +110,6 @@ def write_log(Text, Header=None, TxtFileName=os.path.join(os.getcwd(), "Logs", "
 
     Data1:Value1
     Data2:Value2
-
-
     """
     write_line(TimeNow, TxtFileName)
 
@@ -119,7 +128,7 @@ def write_log(Text, Header=None, TxtFileName=os.path.join(os.getcwd(), "Logs", "
         # single line given
         write_line(Text, TxtFileName)
     # for cleanliness add a blank line to log
-    # write_line('\n', TxtFileName)
+    write_line('\n', TxtFileName)
     return 1
 
 
