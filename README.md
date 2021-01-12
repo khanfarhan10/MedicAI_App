@@ -7,6 +7,7 @@ Deployment Files for MedicAI Application Server Deployed on Flask using Heroku.
 ### General
 
 - HomePage : Complete
+- Integrate to Web Databasing System (NoSQL - MongoDB,FireBase)
 - CertGen
 - QRCodeGen
 - SQL
