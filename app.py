@@ -10,6 +10,7 @@ Team MLXTREME
 
 Instructions For Running :
 
+View Instructions.md
 MedicAIEnv\Scripts\activate
 To deactivate base - conda.bat deactivate
 cd WebsiteFiles/FlaskApp
@@ -24,6 +25,7 @@ Favicon
 
 from flask import Flask, render_template, request, url_for, send_from_directory, jsonify
 import os
+from cryptography.fernet import Fernet
 
 # using datetime module
 import datetime
@@ -33,7 +35,79 @@ REGISTER_HEADER = "User Registered : "
 GITHUB_VIEW_HEADER = "User Visited GitHub : "
 
 app = Flask(__name__, static_folder="assets")
+ROOT_DIR = os.getcwd()
 
+
+# Python Encryption
+KeyFolder = 'PythonEncryption'
+KeyFile = 'secret.key'
+KeyPath = os.path.join(KeyFolder, KeyFile)
+
+
+def generate_key(KeyPath):
+    """
+    Generates a key and save it into a file
+    """
+    key = Fernet.generate_key()
+    with open(KeyPath, "wb") as key_file:
+        key_file.write(key)
+
+
+def load_key(KeyPath):
+    """
+    Load the previously generated key
+    """
+    return open(KeyPath, "rb").read()
+
+
+def encrypt_message(message):
+    """
+    Encrypts a message and returns it as a normal string
+    """
+    encoded_message = message.encode()
+    f = Fernet_Key
+    encrypted_message = f.encrypt(encoded_message)
+    return encrypted_message.decode("utf-8")
+    # print(encrypted_message)
+
+
+def decrypt_message(encrypted_message):
+    """
+    Decrypts an encrypted message entered as a normal string
+    """
+    bytesmessage = bytes(encrypted_message, 'utf-8')
+    encrypted_message = bytesmessage
+    f = Fernet_Key
+    decrypted_message = f.decrypt(encrypted_message)
+    return decrypted_message.decode('utf8')
+    # print(decrypted_message.decode('utf8'))
+
+
+# DONE optimize functions by removing loading Keys everytime
+
+"""
+# Initialize Encryption in Python First
+if not os.path.isfile(KeyPath):
+    generate_key(KeyPath)
+key = load_key(KeyPath)
+f = Fernet(key)
+Fernet_Key = f
+message = "Hello World!"
+x = encrypt_message(message)
+y = decrypt_message(x)
+
+if(y == message):
+    print('Great!')
+"""
+
+# Flask Application and Basic Login Pages - SQL Database
+
+
+# Automails
+
+# Python Certificate Generation , DOCX to PDF , QR Code Generation
+
+# Add Machine Learning Models - COVIDDEEPNET, HEARTASSISTNET , SKINCARENET
 """
 # CODE FOR IP ADDRESS
 @app.route("/get_my_ip", methods=["GET"])
@@ -42,8 +116,6 @@ def get_my_ip():
     print(request.remote_addr)
     return IP_ADDRESS
 """
-
-
 @app.route('/')
 def home1():
     return render_template('homepage.html')
@@ -170,11 +242,26 @@ def registersuccess():
                     'RegisterUserPassword': RegisterUserPassword,
                     'RegisterPolicy': RegisterPolicy}
     write_log(Text=RegisterDict, Header=REGISTER_HEADER)
-    # Return whether login was successfull or not & redirect succesfully to dashboard in 3 secs.
+    # Return whether login was successful or not & redirect succesfully to dashboard in 3 secs.
     # Loading Circle ++ TODO
     return 'Hi You are now Registered!!'
     # return render_template('success.html')
 
 
 if __name__ == "__main__":
+
+        # Check Certificate Templates
+        # Check Automails
+        # Initialize Encryption in Python First
+    if not os.path.isfile(KeyPath):
+        generate_key(KeyPath)
+    key = load_key(KeyPath)
+    f = Fernet(key)
+    Fernet_Key = f
+    message = "Hello World!"
+    x = encrypt_message(message)
+    y = decrypt_message(x)
+
+    if(y == message):
+        print('Great!')
     app.run(debug=True)
